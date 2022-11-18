@@ -1,0 +1,10 @@
+{% includes 'base.html' %}
+
+{% block content %}
+<h1>Liste des auteurs:</h1>
+    <ul>
+        {% for a in authors %}
+            <li>{{a.name.first}} {{a.name.last}}</li>
+        {% endfor%}
+    </ul>
+{% endblock %}
