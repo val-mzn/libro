@@ -1,0 +1,29 @@
+{% include 'base.html' %}
+
+{% block content %}
+
+<form method="post" style="width: 30em;">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="form-group col">
+            <label for="id_bio">Name</label>
+            <input type="text" class="form-control" id="id_name" placeholder="Entrer le nom">
+        </div>
+
+        <div class="form-group col">
+            <label for="id_bio">Birth Date</label>
+            <input type="date" class="form-control" id="id_birth_date">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_bio">Biographie</label>
+        <textarea class="form-control" id="id_bio" rows="10" placeholder="Quelques mots a propos de l'auteur"></textarea>
+    </div>
+
+    <input class="btn btn-secondary" value="Cancel" style="width: 8em;">
+    <input class="btn btn-primary" type="submit" value="Submit"style="width: 8em;">
+</form>
+
+{% endblock %}

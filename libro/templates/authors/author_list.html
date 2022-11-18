@@ -1,14 +1,34 @@
 {% include 'base.html' %}
 
 {% block content %}
-<h1>Liste des auteurs:</h1>
+<h2>Liste des auteurs:</h2>
     {% if authors|length %}
-    <ul>
-        {% for a in authors %}
-            <li><a href="{% url 'author_detail' a.id %}">{{a.name}}</a></li>
-        {% endfor %}
-    </ul>
+    <table class="table table-hover" style="max-width: 60em;">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Bio</th>
+                <th scope="col">Number of Books</th>
+                <th scope="col">Birth Day</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in authors %}
+                <tr>
+                    <td>{{a.id}}</td>
+                    <td>{{a.name}}</td>
+                    <td>{{a.bio}}</td>
+                    <td>?</td>
+                    <td>{{a.birth_date}}</td>
+                    <td><a class="button button-primary" href="{% url 'author_detail' a.id %}">Detail</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     {% else %}
         <p>aucun auteurs dans la base de données</p>
     {% endif %}
+    <a class="btn btn-success" href="{% url 'author_create' %}">+</a>
 {% endblock %}
