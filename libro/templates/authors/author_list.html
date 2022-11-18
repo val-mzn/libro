@@ -5,7 +5,7 @@
     {% if authors|length %}
     <ul>
         {% for a in authors %}
-            <li>{{a.name}}</li>
+            <li><a href="{% url 'author_detail' a.id %}">{{a.name}}</a></li>
         {% endfor %}
     </ul>
     {% else %}

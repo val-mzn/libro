@@ -8,7 +8,7 @@ def list(request):
 
 def detail(request, id):
     try:
-        author = Author.objects.filter(id=id)
+        author = Author.objects.get(id=id)
         if author:
             context = {"author": author}
             return render(request,"authors/author_detail.html", context)
@@ -29,7 +29,7 @@ def delete(request, id):
 
 def update(request, id):
     try:
-        author = Author.objects.filter(id=id)
+        author = Author.objects.get(id=id)
         if author:
             context = {"author": author}
             return render(request,"authors/author_detail.html", context)
