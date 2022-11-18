@@ -24,7 +24,6 @@ def delete(request, id):
     except:
         return HttpResponse(status=404)
 
-
 def update(request, id):
     try:
         Author.objects.filter(id=id)
