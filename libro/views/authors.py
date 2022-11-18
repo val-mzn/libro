@@ -8,11 +8,14 @@ def list(request):
 
 def detail(request, id):
     try:
-        Author.objects.filter(id=id)
-        context = {"author": Author.objects.all()}
-        return render(request,"authors/author_detail.html", context)
+        author = Author.objects.filter(id=id)
+        if author:
+            context = {"author": author}
+            return render(request,"authors/author_detail.html", context)
+        else:
+            return HttpResponse(status=404)
     except:
-        return HttpResponse(status=404)
+        return HttpResponse(status=500)
 
 def create(request):
     return HttpResponse("Hello, world. You're at the polls index.")
@@ -26,8 +29,11 @@ def delete(request, id):
 
 def update(request, id):
     try:
-        Author.objects.filter(id=id)
-        context = {"author": Author.objects.all()}
-        return render(request,"authors/author_detail.html", context)
+        author = Author.objects.filter(id=id)
+        if author:
+            context = {"author": author}
+            return render(request,"authors/author_detail.html", context)
+        else:
+            return HttpResponse(status=404)
     except:
-        return HttpResponse(status=404)
+        return HttpResponse(status=500)
