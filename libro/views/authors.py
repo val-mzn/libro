@@ -1,6 +1,8 @@
 from django.http import HttpResponse
+from models import Author
 
 def list(request):
+
     return HttpResponse("Hello, world. You're at the polls index.")
 
 def detail(request, id):
